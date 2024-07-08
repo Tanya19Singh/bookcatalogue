@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{doctitle}
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/product.css")
+    body
+        header.main-header
+            nav.main-header-nav 
+                ul.main-header-item-list 
+                    li.main-header-item 
+                        a(href="/", class=(path==='/'?'active':'')) Shop 
+                    li.main-header-item 
+                        a(href="/add-product",class=(path==='/add-product'?'active':'')) add product 
+        block content

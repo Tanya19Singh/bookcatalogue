@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= <device-width>, initial-scale=1.0">
+    <title>{{doctitle}}</title>
+<link rel="stylesheet" href="/css/main.css">
+{{#if productsCSS}}
+    <link rel="stylesheet" href="/css/product.css">
+{{/if}}
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header-nav">
+            <ul class="main-header-item-list">
+                <li class="main-header-item"><a class="{{#if activeshop}}active{{/if}}" href="/">shop</a></li>
+                <li class="main-header-item"><a class="{{#if activeaddproduct}}active{{/if}}" href="/add-product">add product</a></li>
+            </ul>
+        </nav>
+        </header>
+    {{{body}}}
+</body>
+</html>

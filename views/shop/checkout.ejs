@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs')%>
+<body>
+    <%- include('../includes/navigation.ejs')%>
+
+
+    <main>
+        <% if(prods.length>0) {%>
+            <div class="checkout">
+                <% for(let product of prods) {%>
+                    <div class="grid">
+                        <div class="grid__item">
+                          <div class="card"><img class="card__img" src="http://books.google.com/books/content?id=<%=product.id%>&printsec=frontcover&img=1&zoom=6&edge=curl&source=gbs_api" alt="<%= product.volumeInfo.title %>" >
+                            <div class="card__content">
+                              <h1 class="card__header"><%=product.volumeInfo.title%></h1>
+                              <p class="card__text"><%=product.volumeInfo.description%></p>
+                              <a href="/products/<%= product.id %>"><button class="card__btn">Explore</button></a>
+                            </div>
+                          </div>
+                        </div> 
+                        </div> 
+                <%}%>
+            </div>
+        <% }else{%>
+            <h1>no products found</h1>
+        <% }%>
+    </main>
+
+    <%- include('../includes/end.ejs')%>

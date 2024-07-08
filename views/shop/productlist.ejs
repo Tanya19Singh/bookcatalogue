@@ -1,0 +1,75 @@
+<%- include('../includes/head.ejs')%>
+<body>
+    <%- include('../includes/navigation.ejs')%>
+
+
+    <main>
+        
+        <h1 class="sec">FICTION</h1>
+            <div class="wrapper">
+                <% for(let products of prods1) {%>
+                    <div class="grid">
+                        <div class="grid__item">
+                          <div class="card"><img class="card__img" src="http://books.google.com/books/content?id=<%=products.id%>&printsec=frontcover&img=1&zoom=6&edge=curl&source=gbs_api" alt="<%= products.volumeInfo.title %>" >
+                            <div class="card__content">
+                              <h1 class="card__header"><%=products.volumeInfo.title%></h1>
+                              <p class="card__text"><%=products.volumeInfo.description%></p>
+                              <a href="/products/<%= products.id %>"><button class="card__btn">Explore</button></a>
+                            </div>
+                          </div>
+                        </div> 
+                        </div> 
+                <%}%>
+            </div>
+        <h1 class="sec">GEOPOLITICS</h1>
+            <div class="wrapper">
+                <% for(let products of prods2) {%>
+                    <div class="grid">
+                        <div class="grid__item">
+                          <div class="card"><img class="card__img" src="http://books.google.com/books/content?id=<%=products.id%>&printsec=frontcover&img=1&zoom=6&edge=curl&source=gbs_api" alt="<%= products.volumeInfo.title %>" >
+                            <div class="card__content">
+                              <h1 class="card__header"><%=products.volumeInfo.title%></h1>
+                              <p class="card__text"><%=products.volumeInfo.description%></p>
+                              <a href="/products/<%= products.id %>"><button class="card__btn">Explore</button></a>
+                            </div>
+                          </div>
+                        </div> 
+                        </div> 
+                <%}%>
+            </div>
+        <h1 class="sec">NOVELS</h1>
+            <div class="wrapper">
+                <% for(let products of prods3) {%>
+                    <div class="grid">
+                        <div class="grid__item">
+                          <div class="card"><img class="card__img" src="http://books.google.com/books/content?id=<%=products.id%>&printsec=frontcover&img=1&zoom=6&edge=curl&source=gbs_api" alt="<%= products.volumeInfo.title %>" >
+                            <div class="card__content">
+                              <h1 class="card__header"><%=products.volumeInfo.title%></h1>
+                              <p class="card__text"><%=products.volumeInfo.description%></p>
+                              <a href="/products/<%= products.id %>"><button class="card__btn">Explore</button></a>
+                            </div>
+                          </div>
+                        </div> 
+                        </div> 
+                <%}%>
+            </div>
+        <h1 class="sec">POETRTY</h1>
+            <div class="wrapper">
+                <% for(let products of prods4) {%>
+                    <div class="grid">
+                        <div class="grid__item">
+                          <div class="card"><img class="card__img" src="http://books.google.com/books/content?id=<%=products.id%>&printsec=frontcover&img=1&zoom=6&edge=curl&source=gbs_api" alt="<%= products.volumeInfo.title %>" >
+                            <div class="card__content">
+                              <h1 class="card__header"><%=products.volumeInfo.title%></h1>
+                              <p class="card__text"><%=products.volumeInfo.description%></p>
+                              <a href="/products/<%= products.id %>"><button class="card__btn">Explore</button></a>
+                            </div>
+                          </div>
+                        </div> 
+                        </div> 
+                <%}%>
+            </div>
+            
+    </main>
+
+    <%- include('../includes/end.ejs')%>
