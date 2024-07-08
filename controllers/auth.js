@@ -52,14 +52,9 @@ exports.postSignup=(req,res,next)=>{
     })
     
     .then(result=>{
-        res.redirect('/login');
+       return res.redirect('/login');
 
-        return transporter.sendMail({
-            to:email,
-            from:'ts12191234@gmail.com',
-            subject:'signup succeeded',
-            text:'You successfully signed up!'
-        })
+       
     })
     .catch(err=>{
         console.log(err);
