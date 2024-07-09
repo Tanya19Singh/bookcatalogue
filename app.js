@@ -24,7 +24,7 @@ const Product=require('./models/product');
 const csrfProtection=csrf();//for protecting your session from being used by any other fake site 
 
 app.set('view engine','ejs');
-app.set('views','views');//here template folder name is views only so no need of it but in case if its something else then need to be specified like this
+app.set('views',__dirname,'/views');//here template folder name is views only so no need of it but in case if its something else then need to be specified like this
 
 const adminroutes=require('./routes/admin');
 const shoproutes=require('./routes/shop');
