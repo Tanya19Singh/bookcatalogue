@@ -52,24 +52,25 @@ main{
     display:flex;
     align-items: center;
     justify-content: center;
-    /* margin:auto; */
-    height:80vh;
+    overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .ani_text{
-    width: 50%;
+    min-width: 500px;
 /* margin-right: 0; */
-    text-align: right;
+    text-align: center;
+padding: 1rem;
     /* font-size:4rem; */
 }
 .first_text{
     display: block;
     color: rgb(236 228 13);
-            font-size: 7rem;
+            font-size: 4rem;
             font-weight: 700;
             letter-spacing: 8px;
             background-color: white;
-            margin-bottom: 10px;
+            /* margin-bottom: 10px; */
             position: relative;
             animation: text 3s 1;
 }
@@ -78,8 +79,6 @@ main{
 }
 .animation{
     padding: 2rem;
-    width: 50%;
-    height: 100%;
 }
 .animated{
     width:100%;
@@ -143,7 +142,6 @@ main{
   
   /* Cards */
   .postcard {
-    height: 60vh;
     flex-wrap: wrap;
     display: flex;
     box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
@@ -175,7 +173,7 @@ main{
     font-size: 1.75rem;
   }
   .postcard .postcard__img {
-    max-height: 180px;
+    max-height: 70%;
     width: 100%;
     object-fit: cover;
     position: relative;
@@ -192,7 +190,7 @@ main{
     transition: width 0.2s ease;
   }
   .postcard .postcard__text {
-    padding: 1.5rem;
+    padding: 4rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -201,7 +199,7 @@ main{
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: justify;
-    height: 100%;
+    /* height: 100%; */
   }
   .postcard .postcard__tagbox {
     display: flex;
@@ -209,7 +207,6 @@ main{
     font-size: 14px;
     margin: 20px 0 0 0;
     padding: 0;
-    justify-content: center;
   }
   .postcard .postcard__tagbox .tag__item {
     display: inline-block;
@@ -240,8 +237,11 @@ main{
   }
   
   @media screen and (min-width: 769px) {
+    
     .postcard {
       flex-wrap: inherit;
+      height: 60vh;
+
     }
     .postcard .postcard__title {
       font-size: 2rem;
@@ -255,7 +255,6 @@ main{
       transition: transform 0.3s ease;
     }
     .postcard .postcard__text {
-      padding: 3rem;
       width: 100%;
     }
     .postcard .media.postcard__text:before {
@@ -284,8 +283,15 @@ main{
       right: -12px !important;
       transform: rotate(-4deg);
     }
+    .first_text{
+      font-size: 7rem;
+    }
+    .ani_text{
+      text-align: right;
+    }
   }
   @media screen and (min-width: 1024px) {
+    
     .postcard__text {
       padding: 2rem 3.5rem;
     }
@@ -299,9 +305,7 @@ main{
       width: 55px;
     }
   
-    /* .postcard.dark .postcard__text:before {
-      background: #18151f;
-    } */
+    
   
     .postcard.light .postcard__text:before {
       background: #ffffff;
@@ -351,36 +355,15 @@ main{
   }
   
   
-  /* .postcard .postcard__tagbox .red.play:hover {
-    background:#bd960b;
-  }
-  
-  .red .postcard__title:hover {
-    color: #bd960b;
-  }
-  
-  .red .postcard__bar {
-    background-color: #bd960b;
-  }
-  
-  .red::before {
-    background-image: linear-gradient(30deg,  rgba(252, 252, 1, 0.1), transparent 50%);
-  }
-  
-  .red:nth-child(2n)::before {
-    background-image: linear-gradient(-30deg,rgba(252, 252, 1, 0.1), transparent 50%);
-  }
-   */
-  
-  @media screen and (min-width: 769px) {
-    .green::before {
-      background-image: linear-gradient(-80deg, rgba(106, 192, 8, 0.1), transparent 50%);
+  @media screen and (max-width: 769px) {
+    .postcard__preview-txt{
+      height: 0px;
     }
-  
-    .green:nth-child(2n)::before {
-      background-image: linear-gradient(80deg, rgba(106, 192, 8, 0.1), transparent 50%);
+  }
+    
+    .blue::before {
+      background-image: linear-gradient(80deg,  rgba(56, 211, 25, 1), transparent 20%);
     }
-  
     .blue::before {
       background-image: linear-gradient(-80deg, rgba(47, 189, 0, 0.1), transparent 50%);
     }
@@ -397,11 +380,5 @@ main{
       background-image: linear-gradient(80deg,rgba(252, 252, 1, 0.1), transparent 50%);
     }
   
-    .yellow::before {
-      background-image: linear-gradient(-80deg, rgba(245, 242, 41, 0.1), transparent 50%);
-    }
-  
-    .yellow:nth-child(2n)::before {
-      background-image: linear-gradient(80deg, rgba(236, 232, 34, 0.1), transparent 50%);
-    }
-  }
+    
+    

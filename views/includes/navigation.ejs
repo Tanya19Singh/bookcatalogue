@@ -1,6 +1,10 @@
 <header class="main-header">
     <nav class="main-header-nav">
-        <ul class="main-header-item-list">
+        <button class="toggle-btn" aria-label="toggle navigation">
+            <span class="icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </button>
+        <ul class="main-header-item-list navlist">
+           
             <li class="main-header-item"><a class="<%= path === '/' ? 'active':''%>" href="/">shop</a></li>
             <li class="main-header-item"><a class="<%= path === '/products' ? 'active':''%>" href="/products">products</a></li>
             <% if(isAuthenticated) {%>
@@ -11,6 +15,7 @@
             <li class="main-header-item"><a class="<%= path === '/admin-products' ? 'active':''%>" href="/admin-products">admin products</a></li>
             <% }%>
         </ul>
+        
         <ul class="main-header-item-list">
             <% if(!isAuthenticated) {%>
 
@@ -25,6 +30,6 @@
 
 
         </ul>
-
+<script src="navtoggle.js"></script>
     </nav>
     </header>
