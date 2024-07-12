@@ -23,7 +23,7 @@ const Product=require('./models/product');
 const csrfProtection=csrf();
 
 app.set('view engine','ejs');
-app.set('views','views');
+app.set('views',path.join(__dirname,'views'));//here template folder name is views only so no need of it but in case if its something else then need to be specified like this
 
 const adminroutes=require('./routes/admin');
 const shoproutes=require('./routes/shop');
