@@ -74,15 +74,16 @@ display: none;  }
   display: block;
 }}
 .navlist.show{
+  top: 100%;
   left: 0;
   z-index: 2;
-  margin-top: 15.2rem;
+  /* margin-top: 15.2rem; */
   transition: width 3s;
-  margin-left:0 ;
   display: block;
   background-color: #5f6b61;
   opacity: 0.8;
   position: absolute;
+  padding: 0.5 rem;
 }
 /* .grid{
     display: flex;
@@ -190,9 +191,7 @@ align-items: center;
 
 
 @media (max-width: 1024px) {
-  .wrapper{
-    height: 90vh;
-  }
+
   .card{
     flex-wrap: wrap;
 

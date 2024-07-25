@@ -2,7 +2,7 @@
 const Product=require('../models/product');//importing the class
 const Order=require('../models/order');
 const axios=require('axios');
-
+const OpenAI = require('openai');
 exports.getproducts=async(req,res,next)=>{
     
   const res1=await axios.get('https://www.googleapis.com/books/v1/volumes?q=subject:fiction&key=AIzaSyBnYQWPPX_n381uO10ZXqfmy_yEksReI48');
@@ -13,15 +13,13 @@ exports.getproducts=async(req,res,next)=>{
   const prod2=res2.data.items;
   const prod3=res3.data.items;
   const prod4=res4.data.items;
-
-    console.log(prod1);
          res.render('shop/productlist',{
             prods1:prod1,
             prods2:prod2,
             prods3:prod3,
             prods4:prod4,
             doctitle:'shop',
-            path:'/',
+            path:'/products',
             isAuthenticated:req.session.isLoggedIn,
         })
 
@@ -35,6 +33,7 @@ exports.getproduct=(req,res,next)=>{
     axios.get('https://www.googleapis.com/books/v1/volumes/'+prodId+'?key=AIzaSyBnYQWPPX_n381uO10ZXqfmy_yEksReI48')
     .then(result=> {
         const book=result.data;
+        console.log("book");
         console.log(book);
          res.render('shop/product-detail',{
             product:book,
@@ -48,26 +47,12 @@ exports.getproduct=(req,res,next)=>{
     
 }
 exports.getindex=(req,res,next)=>{
-    //-------callback approach when file was used to store the data-----
-    //  Product.fetchAll(products=>{
-    // res.render('shop/index',{prods:products,doctitle: 'shop',path:'/',hasproducts: products.length>0, activeshop:true, productsCSS:true});
-    // });
-    // -----------sql method---------
-    // Product.fetchAll()
-    // .then(([rows,fielddata])=>{
-    //     res.render('shop/index',{
-    //         prods:rows,
-    //         doctitle:'shop',
-    //         path:'/'
-    //     })
-
-    // }).catch(err => console.log(err));
 console.log(req.session.isLoggedIn);
 const books=[];
         res.render('shop/index',{
             prods:books,
             doctitle:'shop',
-            path:'/',
+            path:'/', recommendedBook:'',
             isAuthenticated:req.session.isLoggedIn        })
 }
 
@@ -84,12 +69,16 @@ exports.postindex=(req,res,next)=>{
             prods:books,
             doctitle:'shop',
             path:'/',
+            recommendedBook:'',
             isAuthenticated:req.session.isLoggedIn,
         })
 
     })
     .catch(err=>console.log(err))
 
+}
+exports.postrecommend=(req,res,next)=>{
+   
 }
 
 exports.postorder=(req,res,next)=>{

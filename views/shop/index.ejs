@@ -4,7 +4,27 @@
 
 
     <main>
-            
+        <form class="product_form" action="/recommend" method="POST">
+            <div class="form_control">
+                <label for="genre">genre</label>
+                <input type="text" name="genre" id="genre">
+            </div>
+            <div class="form_control">
+                <label for="lastreads">Last reads</label>
+                <input type="text" name="lastreads" id="lastreads">
+            </div>
+            <input type="hidden" name="_csrf"  value="<%= csrfToken %>">
+            <button type="submit">Get Recommendations</button>
+        </form>
+            <div id="recommended-book">
+                <h2>Recommended Book:</h2>
+                <p><% if (recommendedBook) { %>
+                    <p>Recommended book: <%= recommendedBook %></p>
+                  <% } else { %>
+                    <p>No recommended book yet!</p>
+                  <% } %></p>
+              </div>
+       
             <div class="ani_header">               
                 <div class="ani_text">
                     <span class="first_text">Hello!</span>
