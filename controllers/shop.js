@@ -77,9 +77,9 @@ exports.postindex=(req,res,next)=>{
     .catch(err=>console.log(err))
 
 }
-exports.postrecommend=(req,res,next)=>{
+// exports.postrecommend=(req,res,next)=>{
    
-}
+// }
 
 exports.postorder=(req,res,next)=>{
     const products=req.user.cart.items;

@@ -7,7 +7,7 @@ const shopcontroller=require('../controllers/shop');
 const isAuth=require('../middleware/is-auth');
 router.get('/',shopcontroller.getindex);
 router.post('/',shopcontroller.postindex);
-router.post('/recommend',shopcontroller.postrecommend);
+// router.post('/recommend',shopcontroller.postrecommend);
 router.get('/products',shopcontroller.getproducts);
 router.get('/products/delete');//specific routes needed to be put first than dynamic to remove confusion
 router.get('/products/:productId',shopcontroller.getproduct);//dynamic route so : is used
