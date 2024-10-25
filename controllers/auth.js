@@ -50,11 +50,8 @@ exports.postSignup=(req,res,next)=>{
                 return user.save();
             });
     })
-    
-    .then(result=>{
-       return res.redirect('/login');
-
-       
+    .then(()=>{
+        return res.redirect('/login');
     })
     .catch(err=>{
         console.log(err);
@@ -68,10 +65,9 @@ exports.postLogin=(req,res,next)=>{
     .then(user=>{
         if(!user){
             return res.json({error:'invalid email or password'})
-            // return res.redirect('/login');
         }
         bcrypt
-        .compare(password,user.password)//returns a boolean value to then block either true or false
+        .compare(password,user.password)
         .then(doMatch=>{
             if(doMatch){
                 req.session.isLoggedIn = true;
@@ -88,21 +84,9 @@ exports.postLogin=(req,res,next)=>{
         })
 
     })
-    // res.setHeader('set-Cookie',' loggedIn=true');//setting a cookie...it stores a global variable in form of cookie
        
 }
 exports.postLogout=(req,res,next)=>{
-            // req.session.destroy(err=>{
-            //     if(err){
-            //         console.log(err);
-            //     }
-            //     else
-            //         {
-            //             console.log("logout");
-            //             req.end();
-            //         res.redirect('/');}
-
-            // });
 req.session.destroy(err=>{
     if(err){
         console.log(err);
